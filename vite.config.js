@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-let path = require('path')
 
 // https://vitejs.dev/config/
 module.exports = defineConfig({
