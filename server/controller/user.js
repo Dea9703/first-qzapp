@@ -22,21 +22,40 @@ class userController {
   static async cteateUser(req, res) {
     const { account, password } = req.body
     let data
-    if (!account && !password) {
+    if (!account || !password) {
       data = {
         code: 400,
         message: 'none or all of the accounts and passwords exist'
       }
-    } else {
-      await userModel.createUser({ account, password })
+      res.send(data)
+      return
+    }
+
+    const user = await userModel.findUser(account)
+    if (user) {
       data = {
-        code: 200,
-        message: 'create user success'
+        code: 400,
+        message: 'the user already exists'
       }
+      res.send(data)
+      return
+    }
+
+
+    await userModel.createUser({ account, password })
+    data = {
+      code: 200,
+      message: 'create user success'
     }
 
     res.send(data)
   }
+
+  /** 查找用户 */
+  // static async findUser(account) {
+  //   const user = await userModel.findUser(account)
+  //   console.log(user);
+  // }
 }
 
 module.exports = userController

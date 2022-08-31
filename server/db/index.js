@@ -3,6 +3,7 @@ const { Sequelize } = require('sequelize')
 
 const sequelize = new Sequelize('first-app', 'root', '123456', {
   host: 'localhost',
+  port: 9797,
   dialect: 'mysql',
   /** 设置连接池 */
   pool: {

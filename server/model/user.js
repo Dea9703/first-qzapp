@@ -71,6 +71,29 @@ class userModel {
       // await u.rollback()
     }
   }
+
+  /** 查找用户是否存在 */
+  static async findUser(account) {
+    try {
+      let data
+      const user = await User.findOne({ where: { account } })
+      if (!user) {
+        data = {
+          code: 200,
+          data: null
+        }
+      } else {
+        data = {
+          code: 200,
+          data: user
+        }
+      }
+
+      return data
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
 
 module.exports = userModel
