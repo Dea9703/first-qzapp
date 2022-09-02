@@ -97,6 +97,7 @@ const submitForm = async (formState) => {
       display: inline-block;
       padding: 0 20px;
       height: 50px;
+      cursor: pointer;
       border-radius: 0px 10px 0 20px;
       font-size: 18px;
       color: rgb(227, 226, 226);
