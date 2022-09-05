@@ -22,7 +22,7 @@
       <a-form-item :wrapper-col="{ offset: 11 }">
         <a-button type="primary" html-type="submit" @click="submitForm(formState)">{{  register  }}</a-button>
       </a-form-item>
-      <div class="switch" @click="change">{{  isLogin ? '注册' : '登录'  }}</div>
+      <button class="switch" @click.prevent="isLogin = !isLogin">{{  isLogin ? '注册' : '登录'  }}</button>
     </a-form>
   </div>
 
@@ -42,10 +42,6 @@ const formState = reactive({ account: '', password: '' })
 let register = computed(() => {
   return isLogin.value ? '登录' : '注册'
 })
-
-const change = () => {
-  isLogin.value = !isLogin.value
-}
 
 const submitForm = async (formState) => {
   try {
@@ -98,6 +94,7 @@ const submitForm = async (formState) => {
       padding: 0 20px;
       height: 50px;
       cursor: pointer;
+      border: none;
       border-radius: 0px 10px 0 20px;
       font-size: 18px;
       color: rgb(227, 226, 226);
