@@ -22,7 +22,7 @@
       <a-form-item :wrapper-col="{ offset: 11 }">
         <a-button type="primary" html-type="submit" @click="submitForm(formState)">{{ register }}</a-button>
       </a-form-item>
-      <button class="switch" @click.prevent="changeTag">{{ isLogin ? '注册' : '登录' }}</button>
+      <a-button type="primary" class="switch" @click.prevent="changeTag">{{ isLogin ? '注册' : '登录' }}</a-button>
     </a-form>
   </div>
 
@@ -47,6 +47,7 @@ export default defineComponent({
     let register = computed(() => {
       return isLogin.value ? '登录' : '注册'
     })
+
     const changeTag = () => {
       isLogin.value = !isLogin.value
     }
@@ -93,7 +94,7 @@ export default defineComponent({
   .ant-form {
     position: relative;
     width: 500px;
-    background-color: #ccc;
+    background-color: rgba(31, 67, 71, 0.189);
     border: 1px solid #ccc;
     border-radius: 10px;
 
@@ -117,7 +118,6 @@ export default defineComponent({
       color: rgb(227, 226, 226);
       text-align: center;
       line-height: 50px;
-      background-image: linear-gradient(43deg, #fff, #4b574b2f 20%, #99b84b8c 80%, #19b49fe5);
     }
   }
 }
