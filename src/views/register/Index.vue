@@ -1,7 +1,7 @@
 <template>
   <div class="register">
     <a-form :model="formState" :label-col="{ span: 4 }" :wrapper-col="{ span: 18 }" autocomplete="off">
-      <h1 class="c-title">{{ register }}</h1>
+      <h1 class="c-title">江南智薪管理系统</h1>
 
       <a-form-item label="账户" name="account" :rules="[{ required: true, message: 'Please input your account!' }]">
         <a-input v-model:value="formState.account">
@@ -87,21 +87,28 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .register {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  background-image: url('../../assets/images/bg2.8319929a.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .ant-form {
-    position: relative;
-    width: 500px;
+    position: absolute;
+    width: 520px;
+    padding: 35px;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-50%);
     background-color: rgba(31, 67, 71, 0.189);
     border: 1px solid #ccc;
     border-radius: 10px;
 
-    .c-title {
-      margin-top: 14px;
+    .c-title {      
+      font-size: 26px;
+      color: #2d3a4b;
+      margin: 0px auto 40px auto;
       text-align: center;
-      color: rgb(144, 151, 102);
+      font-weight: 900;
     }
 
     .switch {
