@@ -4,16 +4,16 @@ const userModel = require("../model/user");
 class userController {
   /** 获取用户 */
   static async getUser(req, res) {
-    const uid = req.query.uid;
+    const account = req.query.account;
 
     let data = {};
-    if (!uid) {
+    if (!account) {
       data = {
         code: 400,
-        message: "uid is not exist",
+        message: "Accounts are not allowed to be empty",
       };
     } else {
-      userInfo = await userModel.getUser(uid);
+      userInfo = await userModel.getUser(account);
       data = {
         code: 200,
         message: "query user success",
@@ -36,7 +36,7 @@ class userController {
       return;
     }
 
-    const user = await userModel.findUser(account);
+    const user = await userModel.getUser(account);
     if (user) {
       data = {
         code: 400,
